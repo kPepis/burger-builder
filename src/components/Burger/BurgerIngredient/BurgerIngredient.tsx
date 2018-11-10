@@ -11,8 +11,9 @@ class BurgerIngredient extends Component<IBurgerIngredient> {
   };
 
   render() {
-    console.log(classes);
-    const ingredientsList: { [index: string]: React.ReactElement<string> } = {
+    const ingredientsList: {
+      [index: string]: React.ReactElement<HTMLElement>;
+    } = {
       "bread-bottom": <div className={classes.BreadBottom} />,
       "bread-top": (
         <div className={classes.BreadTop}>
