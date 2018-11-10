@@ -18,11 +18,15 @@ interface IProps {
   ingredientAdded: Function;
   ingredientRemoved: Function;
   disabled: { [p: string]: boolean };
+  currentPrice: number;
 }
 
 const buildControls: React.SFC<IProps> = props => {
   return (
     <div className={classes.BuildControls}>
+      <p>
+        Current price: <strong>{props.currentPrice.toFixed(2)}</strong>
+      </p>
       {controls.map(ctrl => (
         <BuildControl
           key={ctrl.label}
