@@ -4,7 +4,7 @@ import classes from "./Layout.module.css";
 const layout: React.SFC = props => {
   return (
     <>
-      <div>Toolbar, side drawer, backdrop</div>
+      <div>Placeholder for toolbar, side drawer, backdrop</div>
       <main className={classes.content}>{props.children}</main>
     </>
   );

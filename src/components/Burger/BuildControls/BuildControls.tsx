@@ -20,6 +20,7 @@ interface IProps {
   disabled: { [p: string]: boolean };
   currentPrice: number;
   purchasable: boolean;
+  ordered: () => void;
 }
 
 const buildControls: React.SFC<IProps> = props => {
@@ -37,7 +38,11 @@ const buildControls: React.SFC<IProps> = props => {
           disabled={props.disabled[ctrl.ingredientType]}
         />
       ))}
-      <button className={classes.OrderButton} disabled={!props.purchasable}>
+      <button
+        className={classes.OrderButton}
+        disabled={!props.purchasable}
+        onClick={props.ordered}
+      >
         Order now
       </button>
     </div>
