@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import classes from "./Modal.module.css";
 import Backdrop from "../Backdrop/Backdrop";
 
@@ -7,23 +7,34 @@ interface IProps {
   modalClosed: () => void;
 }
 
-const modal: React.SFC<IProps> = props => {
-  return (
-    <>
-      <Backdrop show={props.display} clicked={props.modalClosed} />
-      <div
-        className={[
-          classes.Modal,
-          props.display ? classes.ModalDisplayTrue : classes.ModalDisplayFalse
-        ].join(" ")}
-      >
-        <button className={classes.CloseButton} onClick={props.modalClosed}>
-          X
-        </button>
-        {props.children}
-      </div>
-    </>
-  );
-};
+class Modal extends Component<IProps> {
+  shouldComponentUpdate(nextProps: Readonly<IProps>) {
+    return nextProps.display !== this.props.display;
+  }
 
-export default modal;
+  render() {
+    return (
+      <>
+        <Backdrop show={this.props.display} clicked={this.props.modalClosed} />
+        <div
+          className={[
+            classes.Modal,
+            this.props.display
+              ? classes.ModalDisplayTrue
+              : classes.ModalDisplayFalse
+          ].join(" ")}
+        >
+          <button
+            className={classes.CloseButton}
+            onClick={this.props.modalClosed}
+          >
+            X
+          </button>
+          {this.props.children}
+        </div>
+      </>
+    );
+  }
+}
+
+export default Modal;

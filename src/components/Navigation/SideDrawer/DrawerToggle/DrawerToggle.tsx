@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./DrawerToggle.module.css";
 
 interface IProps {
   clicked: () => void;
@@ -6,9 +7,11 @@ interface IProps {
 
 const drawerToggle: React.SFC<IProps> = props => {
   return (
-    <>
-      <div onClick={props.clicked}>Menu</div>
-    </>
+    <div className={styles.DrawerToggle} onClick={props.clicked}>
+      <div />
+      <div />
+      <div />
+    </div>
   );
 };
 
