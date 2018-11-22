@@ -21,8 +21,8 @@ const INGREDIENT_PRICES: IState["ingredients"] = {
 };
 
 class BurgerBuilder extends Component<{}, IState> {
-  constructor() {
-    super({});
+  constructor(_: {}) {
+    super(_);
     this.state = {
       ingredients: {
         salad: 0,

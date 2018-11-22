@@ -12,7 +12,7 @@ const OrderSummary: React.SFC<IProps> = props => {
   let ingredientSummary = Object.entries(props.ingredients).map(entry => {
     const [ingredient, quantity] = entry;
     return (
-      <li>
+      <li key={ingredient}>
         <span style={{ textTransform: "capitalize" }}>{ingredient}</span>:{" "}
         {quantity}
       </li>

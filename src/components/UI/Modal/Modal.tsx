@@ -10,14 +10,16 @@ interface IProps {
 const modal: React.SFC<IProps> = props => {
   return (
     <>
-      <Backdrop show={props.display} closeBackdrop={props.modalClosed} />
+      <Backdrop show={props.display} clicked={props.modalClosed} />
       <div
         className={[
           classes.Modal,
           props.display ? classes.ModalDisplayTrue : classes.ModalDisplayFalse
         ].join(" ")}
       >
-        <button className={classes.CloseButton} onClick={props.modalClosed}>X</button>
+        <button className={classes.CloseButton} onClick={props.modalClosed}>
+          X
+        </button>
         {props.children}
       </div>
     </>
