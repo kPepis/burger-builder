@@ -5,11 +5,20 @@ import Backdrop from "../Backdrop/Backdrop";
 interface IProps {
   display: boolean;
   modalClosed: () => void;
+  children?: React.ReactNode;
 }
 
 class Modal extends Component<IProps> {
-  shouldComponentUpdate(nextProps: Readonly<IProps>) {
-    return nextProps.display !== this.props.display;
+  shouldComponentUpdate(nextProps: IProps) {
+    console.log(
+      nextProps.display !== this.props.display ||
+        nextProps.children !== this.props.children
+    );
+
+    return (
+      nextProps.display !== this.props.display ||
+      nextProps.children !== this.props.children
+    );
   }
 
   render() {
